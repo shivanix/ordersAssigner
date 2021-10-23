@@ -61,6 +61,22 @@ app.put("/orders/:id", async(req,res)=>{
     }
   })
 
+
+  /**Update cost of order based on order id */
+
+  app.put("/cost/:id", async(req,res)=>{
+    try {
+      const{id} = req.params;
+      const{cost} = req.body;
+      const updateCost = await pool.query("UPDATE orders SET cost=$1 WHERE id=$2", [cost, id])
+  
+      // console.log("reqqqqqqq: ", req.body);
+    res.json("Updated cost")
+    } catch (error) {
+      console.log(error);
+    }
+  })
+
 app.listen(PORT, () =>{
   console.log(`Server has started on port ${PORT}`);
 })
