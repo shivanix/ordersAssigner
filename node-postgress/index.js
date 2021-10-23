@@ -32,8 +32,21 @@ app.get("/orders", async(req,res)=>{
   }
 })
 
+/**Update driver_id based on the orders assigned */
 
+app.put("/orders/:id", async(req,res)=>{
+  try {
+    const {id} = req.params;
+    const {driver_id} = req.body;
+    const updateOrders = await pool.query("UPDATE orders SET driver_id= $1 WHERE id=$2", [driver_id, id])
+    // console.log("reqqqqqqq: ", req.body);
+    res.json("Updated orderrrrrs")
+  } catch (error) {
+    console.log(error);
+  }
+  })
 
+  
 app.listen(PORT, () =>{
   console.log(`Server has started on port ${PORT}`);
 })
