@@ -46,7 +46,21 @@ app.put("/orders/:id", async(req,res)=>{
   }
   })
 
+  /**Update assigned status based on the orders assigned */
+
+  app.put("/assigned/:id", async(req,res)=>{
+    try {
+      const{id} = req.params;
+      const{assigned} = req.body;
+      const assignedStatus = await pool.query("UPDATE orders SET assigned=$1 WHERE id=$2", [assigned, id])
   
+      // console.log("reqqqqqqq: ", req.body);
+    res.json("Assigned orderrrrrs")
+    } catch (error) {
+      console.log(error);
+    }
+  })
+
 app.listen(PORT, () =>{
   console.log(`Server has started on port ${PORT}`);
 })
