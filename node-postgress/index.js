@@ -15,11 +15,23 @@ app.get("/", async (req, res) => {
   // console.log("Backendddddd connected");
   try {
     const allDrivers = await pool.query("SELECT * FROM drivers");
-    res.json(allDrivers.rows);
+    res.json(allDrivers.rows)
   } catch (err) {
     console.log(err.message);
   }
 });
+
+/**Get all orders from orders entity from db */
+
+app.get("/orders", async(req,res)=>{
+  try {
+    const allOrders = await pool.query("SELECT * FROM orders");
+    res.json(allOrders.rows)
+  } catch (err) {
+    console.log(err.message);
+  }
+})
+
 
 
 app.listen(PORT, () =>{
