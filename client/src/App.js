@@ -20,7 +20,7 @@ const columnsFromBackend =
 
 
 function App() {
-  const [columns, setColumns] = useState({});
+  const [columns, setColumns] = useState(columnsFromBackend);
 
   return (
     <div className="App">
@@ -48,9 +48,8 @@ function App() {
                 {column.items.map((item, index) => {
                     //  console.log('ITEM:', item);
                     return (
-                       <div>
-                         order compionemt
-                       </div>
+                     <Draggable key={item.id} draggableId={item.id} index={index}>
+                         </Draggable>
                     )
                 })}
                 {provided.placeholder}
