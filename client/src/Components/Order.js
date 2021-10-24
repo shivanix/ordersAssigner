@@ -15,6 +15,80 @@ const Order = (props) => {
     editable: false,
     buttonText: "Edit",
   });
+  const buttonHandler = ()=>{
+      if(item.driver_id === 1){
+        return (
+          <button
+          type="submit"
+          onClick={(e) => {
+            if (item.driver_id !== 1) {
+              return;
+            }
+            if (state.editable) {
+              editCost(item.id, state.newCost, item.driver_id);
+              editRevenue(
+                item.id,
+                state.newRevenue,
+                item.driver_id
+              );
+              setState((prevState) => {
+                return {
+                  ...prevState,
+                  cost: state.newCost,
+                  revenue: state.newRevenue,
+                  editable: false,
+                  buttonText: "Edit",
+                };
+              });
+            } else {
+              setState((prevState) => {
+                return {
+                  ...prevState,
+                  editable: true,
+                  buttonText: "Save",
+                };
+              });
+            }
+          }}
+        >
+          {state.buttonText}
+        </button>
+        )
+      }
+  }
+  const revenueInputDisplayHandler = ()=>{
+      if(item.driver_id === 1 && state.editable){
+        return(
+          <input
+                    type="text"
+                    className="edit-control"
+                    value={state.newRevenue}
+                    onChange={(d) => {
+                      setState((prevState) => {
+                        return { ...prevState, newRevenue: d.target.value };
+                      });
+                    }}
+                  />
+        )
+      }
+  }
+
+  const costInputDisplayHandler = ()=>{
+    if(item.driver_id === 1 && state.editable){
+      return(
+<input
+                    type="text"
+                    className="edit-control"
+                    value={state.newCost}
+                    onChange={(d) => {
+                      setState((prevState) => {
+                        return { ...prevState, newCost: d.target.value };
+                      });
+                    }}
+                  />
+      )
+    }
+  }
 
   return (
     <Draggable key={item.id} draggableId={item.id.toString()} index={index}>
@@ -40,72 +114,20 @@ const Order = (props) => {
             <table className="table-cont">
               <thead>
                 <tr>
-                  <label>Cost In $</label>
+                  <label>Cost: ${state.cost}</label>
                 </tr>
                 <tr>
-                  <input
-                    type="text"
-                    className="edit-control"
-                    value={state.newCost}
-                    onChange={(d) => {
-                      setState((prevState) => {
-                        return { ...prevState, newCost: d.target.value };
-                      });
-                    }}
-                  />
+                  {costInputDisplayHandler()}
 
                   <th>
-                    <button
-                      type="submit"
-                      onClick={(e) => {
-                        if (item.driver_id !== 1) {
-                          return;
-                        }
-                        if (state.editable) {
-                          editCost(item.id, state.newCost, item.driver_id);
-                          editRevenue(
-                            item.id,
-                            state.newRevenue,
-                            item.driver_id
-                          );
-                          setState((prevState) => {
-                            return {
-                              ...prevState,
-                              cost: state.newCost,
-                              revenue: state.newRevenue,
-                              editable: false,
-                              buttonText: "Edit",
-                            };
-                          });
-                        } else {
-                          setState((prevState) => {
-                            return {
-                              ...prevState,
-                              editable: true,
-                              buttonText: "Save",
-                            };
-                          });
-                        }
-                      }}
-                    >
-                      {state.buttonText}
-                    </button>
+                    {buttonHandler()}
                   </th>
                 </tr>
                 <thead>
                   <tr>
-                    <label>Revenue In $</label>
+                    <label>Revenue: ${state.revenue}</label>
                   </tr>
-                  <input
-                    type="text"
-                    className="edit-control"
-                    value={state.newRevenue}
-                    onChange={(d) => {
-                      setState((prevState) => {
-                        return { ...prevState, newRevenue: d.target.value };
-                      });
-                    }}
-                  />
+                  {revenueInputDisplayHandler()}
                 </thead>
                 <th
                   style={{
