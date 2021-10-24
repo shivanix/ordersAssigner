@@ -9,14 +9,14 @@ const itemsFromBackend=[
   {id:'22aa', content: 'Second order'}
 ]
 
-const columnsFromBackend = [
+const columnsFromBackend = 
   {
     ['Hello1']:{
       name: 'StackOrders',
       items: [itemsFromBackend]
     }
   }
-]
+
 
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App">
  <DragDropContext onDragEnd = {result =>{console.log(result)}}>
- {Object.entries(columns).map(([id, column]) =>{
+ {Object.entries(columns).map((id, column) =>{
    return(
     <Droppable droppableId={id} key={id}>
     {(provided, snapshot) => {
