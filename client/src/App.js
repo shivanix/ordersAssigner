@@ -124,8 +124,7 @@ function App() {
             style={{
                 display: "flex",
                 justifyContent: "center",
-                height: "100%",
-                border: "7px solid pink",
+                height: "100%"
             }}
         >
             <DragDropContext
@@ -143,13 +142,13 @@ function App() {
                                 display: "flex",
                                 flexDirection: "column",
                                 alignItems: "center",
-                                border: "3px solid yellow",
+                            
                             }}
                         >
                             <h2>{column.name}</h2>
                             <div
                                 className="column-outer-container"
-                                style={{margin: 8, border: "7px dotted teal"}}
+                                style={{margin: 8}}
                             >
                                 <Droppable droppableId={id} key={id}>
                                     {(provided, snapshot) => {
