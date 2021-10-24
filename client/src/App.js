@@ -4,23 +4,26 @@ import {DragDropContext, Droppable, Draggable} from "react-beautiful-dnd";
 
 
 
-const itemsFromBackend=[
-  {id:'11aa', content: 'First order'},
-  {id:'22aa', content: 'Second order'}
-]
+// const itemsFromBackend=[
+//   {id:'11aa', content: 'First order'},
+//   {id:'22aa', content: 'Second order'}
+// ]
 
-const columnsFromBackend = 
-  {
-    ['Hello1']:{
-      name: 'StackOrders',
-      items: [itemsFromBackend]
-    }
-  }
+// const columnsFromBackend = 
+//   {
+//     ['Hello1']:{
+//       name: 'StackOrders',
+//       items: [itemsFromBackend]
+//     }
+//   }
 
 
 
 function App() {
   const [columns, setColumns] = useState(columnsFromBackend);
+
+
+
 
   return (
     <div className="App">
