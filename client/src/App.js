@@ -96,6 +96,42 @@ function App() {
     }
   };
 
+
+  useEffect(() => {
+    //  Conditional logic for drivers and orders list on page load
+    if (!loaded) {
+        console.log("NOT LOADED");
+        Promise.all([getDriver(), getOrder()]).then((values) => {
+            console.log("Drivers and orders:",drivers, orders);
+
+            let newColumns = {
+                ...columns
+            };
+
+            // Iterating over list of stored drivers
+            for (const driver of drivers) {
+                // Filtering orders based on assignment to individual drivers
+                let driverOrders = orders.filter((dOrder) => {
+                    // console.log("Order", dOrder.description, "belongs to", driver.id);
+                    return dOrder.driver_id === driver.id;
+                });
+                newColumns = {
+                    ...newColumns,
+                    [driver.id]: {
+                        name: driver.drivername,
+                        items: driverOrders,
+                    },
+                };
+            }
+            setColumns({...newColumns});
+            setLoaded(true);
+        });
+    }
+        //  Setting dependencies for useEffect
+      }, [orders, drivers, columns, setColumns, loaded, setLoaded]);
+
+
+
   return (
     <div className="App">
       <DragDropContext
