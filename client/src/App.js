@@ -16,7 +16,9 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 //   }
 
 function App() {
-  const [columns, setColumns] = useState(columnsFromBackend);
+  const [columns, setColumns] = useState({});
+  const [drivers, setDrivers] = useState([]);
+  const [orders, setOrders] = useState([]);
 
   // Func to fetch data for drivers from db
   const getDriver = async () => {
