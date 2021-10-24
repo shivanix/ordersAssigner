@@ -71,8 +71,6 @@ At the end of this you will have three seperate terminals running parallely.
 - cors
 - Node 10.x or above
 - NPM 5.x or above
-- PG 6.x
 - express
-- node-sass-middleware
 - pg
 - pg-native
