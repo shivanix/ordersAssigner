@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
  <DragDropContext onDragEnd = {result =>{console.log(result)}}>
-   EDITTT
+Add DragDropContext
    </DragDropContext>
     </div>
   );
