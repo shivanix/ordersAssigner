@@ -30,8 +30,7 @@ const Order = (props) => {
               padding: 16,
               margin: "0 0 8px 0",
               minHeight: "50px",
-              border: "5px solid red",
-              backgroundColor: snapshot.isDragging ? "#263B4A" : "#456C86",
+              backgroundColor: snapshot.isDragging ? "#263B4A" : "#008891",
               color: "white",
               ...provided.draggableProps.style,
             }}
@@ -41,7 +40,7 @@ const Order = (props) => {
             <table className="table-cont">
               <thead>
                 <tr>
-                  <label>Cost: ${state.cost}</label>
+                  <label>Cost In $</label>
                 </tr>
                 <tr>
                   <input
@@ -95,9 +94,8 @@ const Order = (props) => {
                 </tr>
                 <thead>
                   <tr>
-                    <label>Revenue: ${state.revenue}</label>
+                    <label>Revenue In $</label>
                   </tr>
-                  {/*Revenue: ${" "}*/}
                   <input
                     type="text"
                     className="edit-control"
