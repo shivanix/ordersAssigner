@@ -1,22 +1,13 @@
-
+import React from 'react';
 import './App.css';
+import {DragDropContext, Droppable, Draggable} from "react-beautiful-dnd";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        
-          Edit <code>src/App.js</code> and save to reload.
-       
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+ <DragDropContext onDragEnd = {result =>{console.log(result)}}>
+   EDITTT
+   </DragDropContext>
     </div>
   );
 }
