@@ -30,20 +30,11 @@ Log into Postgres as a user with superuser privileges.  For example:
 
 ```sh
 sudo -u postgres psql
-```
-Execute the following to set up the test database and populate it with data:
-
-Example:
-
-- CREATE USER random_test WITH NOSUPERUSER PASSWORD 'random';
-- CREATE DATABASE orders_assigner OWNER random_test;
-- GRANT ALL ON DATABASE random_test TO random_test;
-
 ```ssh
-Connect to database server based on what is in the node-postgress/db.js file 
+  
+Connect with <your user> to database server based on configuration in the node-postgress/db.js file 
 e.g. \c orders_assigner or <your database name>
 
-  
   
 Run the following commands
 \i db/schema/drivers.sql
