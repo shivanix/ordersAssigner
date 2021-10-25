@@ -25,6 +25,7 @@ Update the node-postgress/db.js file as necessary: Update the
 - password <Your password>
 - database <Database name>
 
+  
 Log into Postgres as a user with superuser privileges.  For example:
 
 ```sh
@@ -42,11 +43,13 @@ Example:
 Connect to database server based on what is in the node-postgress/db.js file 
 e.g. \c orders_assigner or <your database name>
 
+  
+  
 Run the following commands
-\i src/db/schema/drivers.sql
-\i src/db/schema/orders.sql
-\i src/db/seeds/drivers.sql
-\i src/db/seeds/orders.sql
+\i db/schema/drivers.sql
+\i db/schema/orders.sql
+\i db/seeds/drivers.sql
+\i db/seeds/orders.sql
 -- Use this to verify the data:
 SELECT * FROM orders;
 ```
