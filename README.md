@@ -32,10 +32,12 @@ Log into Postgres as a user with superuser privileges.  For example:
 sudo -u postgres psql
 ```
   
+```sh
 Connect with <your user> to database server based on configuration in the node-postgress/db.js file 
 e.g. \c orders_assigner or <your database name>
-
-  
+```
+ 
+```sh
 Run the following commands
 \i db/schema/drivers.sql
 \i db/schema/orders.sql
