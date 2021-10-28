@@ -30,7 +30,7 @@ Log into Postgres as a user with superuser privileges.  For example:
 
 ```sh
 sudo -u postgres psql
-```ssh
+```
   
 Connect with <your user> to database server based on configuration in the node-postgress/db.js file 
 e.g. \c orders_assigner or <your database name>
