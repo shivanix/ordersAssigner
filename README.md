@@ -56,6 +56,7 @@ node index.js
 On a seperate terminal execute the following:
 ```sh
 cd <client>
+npm i
 npm start
 ```
 At the end of this you will have three seperate terminals running parallely.
